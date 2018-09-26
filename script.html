@@ -1,5 +1,11 @@
 <meta charset="utf-8" />
+<style>
 
+    span:hover{
+        background-color:yellow;
+    }
+
+</style>
 
 <code id="code">
 
@@ -15,21 +21,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
     var currentWord = '';
-
     $('#text').keyup(function(e){
         key = e.originalEvent.keyCode;
         console.log(key);
-
         if(key == 32 || key == 13){
-            console.log(currentWord);
-            $('#code').append(currentWord);
+            $('#temp').remove();
+            $('#code').append("<span>"+currentWord+" </span>");
+            if(key == 13){
+                $('#code').append('<br />');
+            }
             currentWord = '';
         } else if(key >= 65 && key <= 90) {
             currentWord += e.originalEvent.key;
+            $('#temp').remove();
+            $('#code').append("<span id='temp'>"+currentWord+" </span>");
+        } else if(key == 8){
+
         }
     });
-
-
 </script>
