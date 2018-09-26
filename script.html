@@ -1,0 +1,35 @@
+<meta charset="utf-8" />
+
+
+<code id="code">
+
+</code>
+
+
+<textarea id="text"></textarea>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    var currentWord = '';
+
+    $('#text').keyup(function(e){
+        key = e.originalEvent.keyCode;
+        console.log(key);
+
+        if(key == 32 || key == 13){
+            console.log(currentWord);
+            $('#code').append(currentWord);
+            currentWord = '';
+        } else if(key >= 65 && key <= 90) {
+            currentWord += e.originalEvent.key;
+        }
+    });
+
+
+</script>
